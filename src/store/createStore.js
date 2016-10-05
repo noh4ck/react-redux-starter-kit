@@ -3,12 +3,16 @@ import thunk from 'redux-thunk'
 import { browserHistory } from 'react-router'
 import makeRootReducer from './reducers'
 import { updateLocation } from './location'
+import swaggerClient from 'redux-swagger-client'
 
 export default (initialState = {}) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
-  const middleware = [thunk]
+  const middleware = [thunk,
+    // Add swagger-client middleware
+    // swaggerClient({url:'http://petstore.swagger.io/v2/swagger.json'}) 
+  ]
 
   // ======================================================
   // Store Enhancers
